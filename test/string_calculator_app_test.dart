@@ -29,4 +29,20 @@ void main() {
   test('Custom delimiter in numbers', () {
     expect(add('//\$\n1\$2'), 3);
   });
+
+  test('Throws on negative numbers', () {
+    expect(
+        () => add('1,-2,3'),
+        throwsA(predicate((e) =>
+            e is Exception &&
+            e.toString().contains('negative numbers are not allowed: -2'))));
+  });
+
+  test('Shows all negative numbers', () {
+    expect(
+        () => add('-1,-3,-5'),
+        throwsA(predicate((e) => e
+            .toString()
+            .contains('negative numbers are not allowed: -1,-3,-5'))));
+  });
 }
