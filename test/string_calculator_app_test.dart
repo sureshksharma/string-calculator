@@ -13,4 +13,12 @@ void main() {
   test('Two numbers comma seperated returns the sum', () {
     expect(add('1,5'), 6);
   });
+
+  test('Multiple numbers comma seperated returns the sum', () {
+    expect(add('1,5,3,2'), 11);
+  });
+
+  test('Support new line as delimiter', () {
+    expect(add('1\n2,3'), 6);
+  });
 }
