@@ -7,6 +7,10 @@ void main() {
   });
 
   test('Single number returns the same number', () {
-    expect(add('5'), 5);
+    expect(add('1'), 1);
+  });
+
+  test('Two numbers comma seperated returns the sum', () {
+    expect(add('1,5'), 6);
   });
 }
